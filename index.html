@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>aitorunoct — cosmic art project</title>
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at top, #0b1d3a 0%, #050b1e 40%, #020617 100%);
+      color: #e0f2fe;
+      overflow-x: hidden;
+    }
+
+    /* stars */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image:
+        radial-gradient(1px 1px at 15% 20%, #93c5fd, transparent),
+        radial-gradient(1px 1px at 70% 30%, #bfdbfe, transparent),
+        radial-gradient(1px 1px at 40% 80%, #60a5fa, transparent),
+        radial-gradient(1px 1px at 85% 75%, #93c5fd, transparent);
+      opacity: 0.7;
+      pointer-events: none;
+    }
+
+    header {
+      text-align: center;
+      padding: 5rem 2rem 4rem;
+    }
+
+    header h1 {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      letter-spacing: 0.25em;
+      color: #bfdbfe;
+    }
+
+    header p {
+      margin-top: 1rem;
+      font-size: 1rem;
+      opacity: 0.8;
+      letter-spacing: 0.15em;
+    }
+
+    section {
+      max-width: 950px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    .card {
+      background: linear-gradient(
+        160deg,
+        rgba(30, 64, 175, 0.35),
+        rgba(2, 6, 23, 0.75)
+      );
+      border: 1px solid rgba(147, 197, 253, 0.15);
+      border-radius: 22px;
+      padding: 2.5rem;
+      margin-bottom: 2.5rem;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 0 50px rgba(59, 130, 246, 0.18);
+    }
+
+    .card h2 {
+      font-weight: 400;
+      margin-bottom: 1rem;
+      color: #93c5fd;
+      letter-spacing: 0.2em;
+    }
+
+    .card p {
+      line-height: 1.9;
+      font-weight: 300;
+      opacity: 0.95;
+    }
+
+    footer {
+      text-align: center;
+      padding: 3rem 1rem 4rem;
+      font-size: 0.8rem;
+      opacity: 0.6;
+      letter-spacing: 0.2em;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>AITORUNOCT</h1>
+    <p>a quiet archive of galaxies and thoughts</p>
+  </header>
+
+  <section>
+    <div class="card">
+      <h2>ABOUT THIS SPACE</h2>
+      <p>
+        Aitorunoct is a personal cosmic art project.
+        It is not meant to explain the universe,
+        but to feel it — slowly, quietly,
+        in shades of deep blue and distant light.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>FACT I — WE ARE STARDUST</h2>
+      <p>
+        Almost every element in the human body
+        was forged inside stars billions of years ago.
+        When massive stars died,
+        they scattered the building blocks of life
+        across the universe.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>FACT II — THE SOUND OF SPACE</h2>
+      <p>
+        Space itself is silent,
+        but galaxies and black holes
+        emit vibrations that can be translated into sound.
+        The universe has a rhythm —
+        we just need the right instruments to hear it.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>FACT III — LOOKING BACK IN TIME</h2>
+      <p>
+        When we observe distant galaxies,
+        we are seeing them as they were millions
+        or even billions of years ago.
+        Every telescope is a time machine,
+        pointing into the past.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>FACT IV — THE BLUE PLANET</h2>
+      <p>
+        Earth appears blue from space
+        not only because of water,
+        but because our atmosphere
+        scatters blue light more efficiently.
+        A fragile color, protecting life.
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 aitorunoct — drifting through blue silence
+  </footer>
+
+</body>
+</html>
