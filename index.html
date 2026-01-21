@@ -9,14 +9,14 @@
 
 <style>
 :root{
-  --blue:#5dade2;
-  --glass:rgba(255,255,255,0.08);
+  --blue:#6bb6ff;
+  --glass:rgba(255,255,255,.08);
 }
 
 *{margin:0;padding:0;box-sizing:border-box}
 body{
   font-family:'Poppins',sans-serif;
-  background:radial-gradient(circle at top,#0b2a4a,#030817);
+  background:radial-gradient(circle at top,#0b2c52,#020714);
   color:white;
   overflow-x:hidden;
 }
@@ -31,18 +31,18 @@ body{
   text-align:center;
 }
 .hero h1{
-  font-size:3.5rem;
+  font-size:3.8rem;
   color:var(--blue);
   animation:fadeDown 1.5s ease;
 }
 .hero p{
-  max-width:650px;
-  margin-top:15px;
+  max-width:700px;
+  margin-top:20px;
   opacity:.9;
 }
 
 @keyframes fadeDown{
-  from{opacity:0;transform:translateY(-40px)}
+  from{opacity:0;transform:translateY(-50px)}
   to{opacity:1;transform:translateY(0)}
 }
 
@@ -53,63 +53,84 @@ h2{text-align:center;color:var(--blue);margin-bottom:50px}
 /* GRID */
 .grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-  gap:35px;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:40px;
 }
 
 .card{
   background:var(--glass);
-  backdrop-filter:blur(8px);
-  border-radius:22px;
+  backdrop-filter:blur(10px);
+  border-radius:24px;
   padding:25px;
   text-align:center;
   cursor:pointer;
   transition:.4s;
 }
 .card:hover{
-  transform:translateY(-15px) scale(1.05);
-  box-shadow:0 0 35px rgba(93,173,226,.45);
+  transform:translateY(-18px) scale(1.05);
+  box-shadow:0 0 40px rgba(107,182,255,.45);
 }
 .card img{
-  width:150px;
-  height:150px;
+  width:160px;
+  height:160px;
   object-fit:cover;
   border-radius:50%;
-  margin-bottom:15px;
+  margin-bottom:18px;
 }
+.card h3{margin-bottom:8px}
 
 /* MODAL */
 .modal{
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,.88);
+  background:rgba(0,0,0,.9);
   display:none;
   justify-content:center;
   align-items:center;
-  z-index:100;
+  z-index:999;
 }
 .modal-content{
-  background:#081a33;
-  border-radius:22px;
-  max-width:900px;
-  width:92%;
+  background:#071a33;
+  border-radius:26px;
+  max-width:1000px;
+  width:94%;
   padding:35px;
+  max-height:90vh;
+  overflow-y:auto;
   animation:zoom .4s ease;
 }
 @keyframes zoom{
   from{transform:scale(.6);opacity:0}
   to{transform:scale(1);opacity:1}
 }
-.modal img{
+.modal h2{margin-bottom:15px}
+.modal p{line-height:1.8;opacity:.95}
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:15px;
+  margin:20px 0;
+}
+.gallery img{
   width:100%;
   border-radius:16px;
-  margin:18px 0;
 }
 .close{
   float:right;
   cursor:pointer;
-  font-size:1.5rem;
+  font-size:1.6rem;
   color:var(--blue);
+}
+
+/* SCROLL */
+.reveal{
+  opacity:0;
+  transform:translateY(70px);
+  transition:1s;
+}
+.reveal.active{
+  opacity:1;
+  transform:none;
 }
 
 /* FOOTER */
@@ -120,17 +141,6 @@ footer{
   font-size:.9rem;
 }
 footer a{color:var(--blue);text-decoration:none}
-
-/* SCROLL ANIMATION */
-.reveal{
-  opacity:0;
-  transform:translateY(60px);
-  transition:1s;
-}
-.reveal.active{
-  opacity:1;
-  transform:none;
-}
 </style>
 </head>
 
@@ -139,47 +149,53 @@ footer a{color:var(--blue);text-decoration:none}
 <div class="hero">
   <div>
     <h1>Aitouronct</h1>
-    <p>An interactive journey through the Milky Way — planets, stars, and cosmic wonders.</p>
+    <p>An immersive exploration of the Milky Way Galaxy — planets, stars, orbits, and deep-space facts.</p>
   </div>
 </div>
 
 <section>
-<h2>☀️ The Sun — Central Star</h2>
+<h2>🪐 Planets of the Solar System</h2>
 <div class="grid reveal">
-  <div class="card" onclick="openModal('The Sun','The Sun contains over 99.8% of the solar system’s mass and controls planetary orbits.','https://images.unsplash.com/photo-1470290378698-263fa7caed6f')">
-    <img src="https://images.unsplash.com/photo-1470290378698-263fa7caed6f">
-    <h3>The Sun</h3>
-  </div>
+
+<div class="card" onclick="openPlanet(planetData.mercury)">
+<img src="https://solarsystem.nasa.gov/system/feature_items/images/18_mercury_new.png">
+<h3>Mercury</h3><p>Closest to the Sun</p>
 </div>
-</section>
 
-<section>
-<h2>🪐 Planets of the Milky Way</h2>
-<div class="grid reveal">
+<div class="card" onclick="openPlanet(planetData.venus)">
+<img src="https://solarsystem.nasa.gov/system/feature_items/images/27_venus_jg.png">
+<h3>Venus</h3><p>The hottest planet</p>
+</div>
 
-<div class="card" onclick="openModal('Mercury','The smallest planet with extreme temperature changes.','https://solarsystem.nasa.gov/system/feature_items/images/18_mercury_new.png')">
-<img src="https://solarsystem.nasa.gov/system/feature_items/images/18_mercury_new.png"><h3>Mercury</h3></div>
+<div class="card" onclick="openPlanet(planetData.earth)">
+<img src="https://solarsystem.nasa.gov/system/feature_items/images/17_earth.png">
+<h3>Earth</h3><p>Our home planet</p>
+</div>
 
-<div class="card" onclick="openModal('Venus','The hottest planet due to a runaway greenhouse effect.','https://solarsystem.nasa.gov/system/feature_items/images/27_venus_jg.png')">
-<img src="https://solarsystem.nasa.gov/system/feature_items/images/27_venus_jg.png"><h3>Venus</h3></div>
+<div class="card" onclick="openPlanet(planetData.mars)">
+<img src="https://solarsystem.nasa.gov/system/feature_items/images/19_mars.png">
+<h3>Mars</h3><p>The Red Planet</p>
+</div>
 
-<div class="card" onclick="openModal('Earth','The only known planet that supports life.','https://solarsystem.nasa.gov/system/feature_items/images/17_earth.png')">
-<img src="https://solarsystem.nasa.gov/system/feature_items/images/17_earth.png"><h3>Earth</h3></div>
+<div class="card" onclick="openPlanet(planetData.jupiter)">
+<img src="https://solarsystem.nasa.gov/system/feature_items/images/16_jupiter_new.png">
+<h3>Jupiter</h3><p>Gas giant king</p>
+</div>
 
-<div class="card" onclick="openModal('Mars','Known as the Red Planet, once had flowing water.','https://solarsystem.nasa.gov/system/feature_items/images/19_mars.png')">
-<img src="https://solarsystem.nasa.gov/system/feature_items/images/19_mars.png"><h3>Mars</h3></div>
+<div class="card" onclick="openPlanet(planetData.saturn)">
+<img src="https://solarsystem.nasa.gov/system/feature_items/images/28_saturn.png">
+<h3>Saturn</h3><p>Iconic rings</p>
+</div>
 
-<div class="card" onclick="openModal('Jupiter','The largest planet with massive storms.','https://solarsystem.nasa.gov/system/feature_items/images/16_jupiter_new.png')">
-<img src="https://solarsystem.nasa.gov/system/feature_items/images/16_jupiter_new.png"><h3>Jupiter</h3></div>
+<div class="card" onclick="openPlanet(planetData.uranus)">
+<img src="https://solarsystem.nasa.gov/system/feature_items/images/29_uranus.png">
+<h3>Uranus</h3><p>Sideways rotation</p>
+</div>
 
-<div class="card" onclick="openModal('Saturn','Famous for its beautiful ring system.','https://solarsystem.nasa.gov/system/feature_items/images/28_saturn.png')">
-<img src="https://solarsystem.nasa.gov/system/feature_items/images/28_saturn.png"><h3>Saturn</h3></div>
-
-<div class="card" onclick="openModal('Uranus','Rotates on its side with extreme seasons.','https://solarsystem.nasa.gov/system/feature_items/images/29_uranus.png')">
-<img src="https://solarsystem.nasa.gov/system/feature_items/images/29_uranus.png"><h3>Uranus</h3></div>
-
-<div class="card" onclick="openModal('Neptune','The windiest planet in the solar system.','https://solarsystem.nasa.gov/system/feature_items/images/30_neptune.png')">
-<img src="https://solarsystem.nasa.gov/system/feature_items/images/30_neptune.png"><h3>Neptune</h3></div>
+<div class="card" onclick="openPlanet(planetData.neptune)">
+<img src="https://solarsystem.nasa.gov/system/feature_items/images/30_neptune.png">
+<h3>Neptune</h3><p>Extreme winds</p>
+</div>
 
 </div>
 </section>
@@ -189,30 +205,117 @@ Instagram: <a href="https://instagram.com/eirthuoo">@eirthuoo</a><br>
 © 2026 Aitouronct Galaxy Project
 </footer>
 
+<!-- MODAL -->
 <div class="modal" id="modal">
   <div class="modal-content">
     <span class="close" onclick="closeModal()">✕</span>
     <h2 id="mTitle"></h2>
     <p id="mText"></p>
-    <img id="mImg">
+    <div class="gallery" id="mGallery"></div>
   </div>
 </div>
 
 <script>
-function openModal(title,text,img){
-  modal.style.display='flex';
-  mTitle.innerText=title;
-  mText.innerText=text;
-  mImg.src=img;
+const planetData = {
+mercury:{
+title:"Mercury",
+text:`Mercury is the smallest and innermost planet in the Solar System. 
+It experiences extreme temperature variations, ranging from -180°C at night 
+to over 430°C during the day. Mercury has no atmosphere to retain heat and 
+orbits the Sun faster than any other planet, completing one orbit in just 88 Earth days.`,
+images:[
+"https://solarsystem.nasa.gov/system/feature_items/images/18_mercury_new.png",
+"https://images.unsplash.com/photo-1580428180131-70f3c61c52e6"
+]
+},
+venus:{
+title:"Venus",
+text:`Venus is similar in size to Earth but has a thick atmosphere dominated by carbon dioxide.
+This creates an intense greenhouse effect, making Venus the hottest planet in the Solar System.
+Surface temperatures can melt lead, and its clouds contain sulfuric acid.`,
+images:[
+"https://solarsystem.nasa.gov/system/feature_items/images/27_venus_jg.png",
+"https://images.unsplash.com/photo-1580428180781-b4c3e2c5d5e5"
+]
+},
+earth:{
+title:"Earth",
+text:`Earth is the only known planet that supports life.
+It has liquid water, a protective magnetic field, and an atmosphere rich in oxygen.
+About 71% of Earth's surface is covered by oceans, and it orbits the Sun every 365 days.`,
+images:[
+"https://solarsystem.nasa.gov/system/feature_items/images/17_earth.png",
+"https://images.unsplash.com/photo-1446776811953-b23d57bd21aa"
+]
+},
+mars:{
+title:"Mars",
+text:`Mars is known as the Red Planet due to iron oxide on its surface.
+Scientists believe Mars once had rivers and lakes.
+Today, it is a cold desert world but remains one of the top targets for future human exploration.`,
+images:[
+"https://solarsystem.nasa.gov/system/feature_items/images/19_mars.png",
+"https://images.unsplash.com/photo-1580428180218-0e2dfc86a2b6"
+]
+},
+jupiter:{
+title:"Jupiter",
+text:`Jupiter is the largest planet in the Solar System.
+It has a powerful magnetic field and dozens of moons.
+The Great Red Spot is a massive storm that has raged for over 300 years.`,
+images:[
+"https://solarsystem.nasa.gov/system/feature_items/images/16_jupiter_new.png",
+"https://images.unsplash.com/photo-1614642264762-d0a3b8bf3700"
+]
+},
+saturn:{
+title:"Saturn",
+text:`Saturn is famous for its spectacular ring system made of ice and rock.
+It is a gas giant with very low density—so low that it could float in water if a bathtub were big enough.`,
+images:[
+"https://solarsystem.nasa.gov/system/feature_items/images/28_saturn.png",
+"https://images.unsplash.com/photo-1614728894747-3f9c62e5f6c4"
+]
+},
+uranus:{
+title:"Uranus",
+text:`Uranus rotates on its side, making its seasons extreme.
+It has a pale blue color due to methane in its atmosphere.
+Each pole experiences 42 years of continuous sunlight or darkness.`,
+images:[
+"https://solarsystem.nasa.gov/system/feature_items/images/29_uranus.png",
+"https://images.unsplash.com/photo-1614728894966-0c3dbfc0d7f4"
+]
+},
+neptune:{
+title:"Neptune",
+text:`Neptune is the farthest planet from the Sun.
+It has the strongest winds in the Solar System, reaching speeds of over 2,000 km/h.
+Neptune appears deep blue due to atmospheric methane.`,
+images:[
+"https://solarsystem.nasa.gov/system/feature_items/images/30_neptune.png",
+"https://images.unsplash.com/photo-1614728894582-1f6fa5f1cfa4"
+]
 }
-function closeModal(){
-  modal.style.display='none';
-}
+};
 
-window.addEventListener('scroll',()=>{
-  document.querySelectorAll('.reveal').forEach(el=>{
-    if(el.getBoundingClientRect().top < window.innerHeight - 100){
-      el.classList.add('active');
+function openPlanet(p){
+  modal.style.display="flex";
+  mTitle.innerText=p.title;
+  mText.innerText=p.text;
+  mGallery.innerHTML="";
+  p.images.forEach(img=>{
+    const i=document.createElement("img");
+    i.src=img;
+    mGallery.appendChild(i);
+  });
+}
+function closeModal(){modal.style.display="none"}
+
+window.addEventListener("scroll",()=>{
+  document.querySelectorAll(".reveal").forEach(el=>{
+    if(el.getBoundingClientRect().top < window.innerHeight-100){
+      el.classList.add("active");
     }
   });
 });
