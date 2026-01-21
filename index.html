@@ -1,191 +1,249 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>aitorunoct | Cosmic Gallery</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>aitorunoct | Milky Way Explorer</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-    }
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif}
+body{
+  background:radial-gradient(circle at top,#0b1d3a,#020111);
+  color:#e6ecff;
+  overflow-x:hidden;
+}
+header{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  animation:fadeIn 2s;
+}
+header h1{font-size:3.5rem;color:#9db9ff;letter-spacing:3px}
+header p{max-width:600px;margin:20px;opacity:.9}
+.btn{
+  padding:14px 30px;
+  border-radius:30px;
+  border:none;
+  background:linear-gradient(135deg,#3f6cff,#6a8dff);
+  color:white;
+  cursor:pointer;
+  transition:.3s;
+}
+.btn:hover{transform:scale(1.1)}
 
-    body {
-      background: radial-gradient(circle at top, #0b1d3a, #020111);
-      color: #e6ecff;
-      overflow-x: hidden;
-    }
+section{padding:80px 20px;max-width:1300px;margin:auto}
 
-    header {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 20px;
-      animation: fadeIn 2s ease;
-    }
+.planets{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:30px;
+}
+.planet{
+  background:rgba(255,255,255,.06);
+  border-radius:20px;
+  overflow:hidden;
+  cursor:pointer;
+  transform:translateY(40px);
+  opacity:0;
+  transition:.8s;
+}
+.planet.show{transform:translateY(0);opacity:1}
+.planet img{width:100%;height:220px;object-fit:cover}
+.planet h3{text-align:center;padding:15px;color:#a8c0ff}
 
-    header h1 {
-      font-size: 3.2rem;
-      color: #9db9ff;
-      letter-spacing: 2px;
-    }
+/* MODAL */
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.85);
+  display:none;
+  justify-content:center;
+  align-items:center;
+  z-index:999;
+}
+.modal.active{display:flex}
+.modal-content{
+  background:#050b1f;
+  max-width:900px;
+  width:90%;
+  padding:30px;
+  border-radius:20px;
+  animation:zoom .5s;
+}
+.modal h2{color:#9db9ff;margin-bottom:10px}
+.modal p{opacity:.9;margin-bottom:20px}
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:15px;
+}
+.gallery img{width:100%;border-radius:14px}
+.close{
+  margin-top:20px;
+  background:#ff5c5c;
+}
 
-    header p {
-      max-width: 600px;
-      margin: 20px 0;
-      opacity: 0.9;
-    }
-
-    .btn {
-      padding: 12px 28px;
-      border-radius: 30px;
-      border: none;
-      background: linear-gradient(135deg, #3f6cff, #6a8dff);
-      color: white;
-      cursor: pointer;
-      font-size: 0.9rem;
-      transition: transform 0.3s ease;
-    }
-
-    .btn:hover {
-      transform: scale(1.08);
-    }
-
-    section {
-      padding: 80px 20px;
-      max-width: 1200px;
-      margin: auto;
-    }
-
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 30px;
-    }
-
-    .card {
-      background: rgba(255,255,255,0.06);
-      border-radius: 18px;
-      overflow: hidden;
-      backdrop-filter: blur(10px);
-      transform: translateY(40px);
-      opacity: 0;
-      transition: all 0.8s ease;
-    }
-
-    .card.show {
-      transform: translateY(0);
-      opacity: 1;
-    }
-
-    .card img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-    }
-
-    .card-content {
-      padding: 20px;
-    }
-
-    .card-content h3 {
-      color: #a8c0ff;
-      margin-bottom: 10px;
-    }
-
-    footer {
-      text-align: center;
-      padding: 40px 20px;
-      border-top: 1px solid rgba(255,255,255,0.1);
-      font-size: 0.9rem;
-    }
-
-    footer a {
-      color: #8fb1ff;
-      text-decoration: none;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-  </style>
+@keyframes fadeIn{from{opacity:0;transform:translateY(30px)}to{opacity:1}}
+@keyframes zoom{from{transform:scale(.7)}to{transform:scale(1)}}
+</style>
 </head>
 
 <body>
 
 <header>
   <h1>aitorunoct</h1>
-  <p>
-    A cosmic art project exploring planets, galaxies, and mysteries of the universe.
-  </p>
-  <button class="btn" onclick="scrollToGallery()">Explore the Cosmos</button>
+  <p>An immersive art project exploring planets, stars, and the vast Milky Way galaxy.</p>
+  <button class="btn" onclick="scrollToPlanets()">Explore Planets</button>
 </header>
 
-<section id="gallery">
-  <div class="gallery">
+<section id="planets">
+<div class="planets">
 
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa">
-      <div class="card-content">
-        <h3>Earth</h3>
-        <p>The only known planet that supports life with a protective atmosphere.</p>
-        <button class="btn" onclick="showFact('Earth has a powerful magnetic field!')">Fun Fact</button>
-      </div>
-    </div>
+<div class="planet" onclick="openModal('Mercury')">
+  <img src="https://images.unsplash.com/photo-1614728894747-a83421e2b9c9">
+  <h3>Mercury</h3>
+</div>
 
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1580428180138-64b7b02b4c7e">
-      <div class="card-content">
-        <h3>Mars</h3>
-        <p>Mars appears red due to iron oxide covering its surface.</p>
-        <button class="btn" onclick="showFact('Mars has the largest volcano in the solar system!')">Fun Fact</button>
-      </div>
-    </div>
+<div class="planet" onclick="openModal('Venus')">
+  <img src="https://images.unsplash.com/photo-1580428180138-64b7b02b4c7e">
+  <h3>Venus</h3>
+</div>
 
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1473923377535-0002805f57c8">
-      <div class="card-content">
-        <h3>Nebula</h3>
-        <p>Stellar nurseries where stars are born.</p>
-        <button class="btn" onclick="showFact('Nebulae can span hundreds of light-years!')">Fun Fact</button>
-      </div>
-    </div>
+<div class="planet" onclick="openModal('Earth')">
+  <img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa">
+  <h3>Earth</h3>
+</div>
 
-  </div>
+<div class="planet" onclick="openModal('Mars')">
+  <img src="https://images.unsplash.com/photo-1580428180138-64b7b02b4c7e">
+  <h3>Mars</h3>
+</div>
+
+<div class="planet" onclick="openModal('Jupiter')">
+  <img src="https://images.unsplash.com/photo-1473923377535-0002805f57c8">
+  <h3>Jupiter</h3>
+</div>
+
+<div class="planet" onclick="openModal('Saturn')">
+  <img src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564">
+  <h3>Saturn</h3>
+</div>
+
+<div class="planet" onclick="openModal('Uranus')">
+  <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee">
+  <h3>Uranus</h3>
+</div>
+
+<div class="planet" onclick="openModal('Neptune')">
+  <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429">
+  <h3>Neptune</h3>
+</div>
+
+</div>
 </section>
 
-<footer>
-  © 2026 aitorunoct · Instagram:
-  <a href="https://instagram.com/eirthuoo" target="_blank">@eirthuoo</a>
-</footer>
+<!-- MODAL -->
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <h2 id="modalTitle"></h2>
+    <p id="modalText"></p>
+    <div class="gallery" id="modalGallery"></div>
+    <button class="btn close" onclick="closeModal()">Close</button>
+  </div>
+</div>
 
 <script>
-  function scrollToGallery() {
-    document.getElementById('gallery').scrollIntoView({ behavior: 'smooth' });
+const data={
+  Mercury:{
+    text:"Mercury is the smallest and fastest planet, orbiting the Sun in just 88 days.",
+    images:[
+      "https://images.unsplash.com/photo-1614728894747-a83421e2b9c9",
+      "https://images.unsplash.com/photo-1580428180138-64b7b02b4c7e"
+    ]
+  },
+  Venus:{
+    text:"Venus has a thick toxic atmosphere and is the hottest planet in our system.",
+    images:[
+      "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429",
+      "https://images.unsplash.com/photo-1473923377535-0002805f57c8"
+    ]
+  },
+  Earth:{
+    text:"Earth is the only known planet that supports life.",
+    images:[
+      "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa",
+      "https://images.unsplash.com/photo-1451187580459-43490279c0fa"
+    ]
+  },
+  Mars:{
+    text:"Mars is known as the Red Planet and may have once supported life.",
+    images:[
+      "https://images.unsplash.com/photo-1580428180138-64b7b02b4c7e",
+      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee"
+    ]
+  },
+  Jupiter:{
+    text:"Jupiter is the largest planet with a giant storm called the Great Red Spot.",
+    images:[
+      "https://images.unsplash.com/photo-1473923377535-0002805f57c8",
+      "https://images.unsplash.com/photo-1462331940025-496dfbfc7564"
+    ]
+  },
+  Saturn:{
+    text:"Saturn is famous for its stunning ring system.",
+    images:[
+      "https://images.unsplash.com/photo-1462331940025-496dfbfc7564",
+      "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429"
+    ]
+  },
+  Uranus:{
+    text:"Uranus rotates on its side, unlike any other planet.",
+    images:[
+      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee",
+      "https://images.unsplash.com/photo-1473923377535-0002805f57c8"
+    ]
+  },
+  Neptune:{
+    text:"Neptune has the strongest winds in the solar system.",
+    images:[
+      "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429",
+      "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa"
+    ]
   }
+};
 
-  function showFact(text) {
-    alert(text);
-  }
-
-  const cards = document.querySelectorAll('.card');
-  window.addEventListener('scroll', () => {
-    cards.forEach(card => {
-      const rect = card.getBoundingClientRect();
-      if (rect.top < window.innerHeight - 100) {
-        card.classList.add('show');
-      }
-    });
+function openModal(name){
+  document.getElementById('modal').classList.add('active');
+  document.getElementById('modalTitle').innerText=name;
+  document.getElementById('modalText').innerText=data[name].text;
+  const g=document.getElementById('modalGallery');
+  g.innerHTML='';
+  data[name].images.forEach(img=>{
+    g.innerHTML+=`<img src="${img}">`;
   });
+}
+
+function closeModal(){
+  document.getElementById('modal').classList.remove('active');
+}
+
+function scrollToPlanets(){
+  document.getElementById('planets').scrollIntoView({behavior:'smooth'});
+}
+
+const cards=document.querySelectorAll('.planet');
+window.addEventListener('scroll',()=>{
+  cards.forEach(c=>{
+    if(c.getBoundingClientRect().top<window.innerHeight-100){
+      c.classList.add('show');
+    }
+  });
+});
 </script>
 
 </body>
