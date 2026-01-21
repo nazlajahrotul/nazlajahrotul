@@ -3,41 +3,41 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aitouronct — Milky Way Explorer</title>
+<title>Aitouronct — Milky Way Galaxy Explorer</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
 :root{
-  --blue:#4da3ff;
-  --dark:#050b1a;
+  --blue:#5dade2;
+  --glass:rgba(255,255,255,0.08);
 }
 
 *{margin:0;padding:0;box-sizing:border-box}
 body{
   font-family:'Poppins',sans-serif;
-  background:radial-gradient(circle at top,#0a1f44,#050b1a);
+  background:radial-gradient(circle at top,#0b2a4a,#030817);
   color:white;
   overflow-x:hidden;
 }
 
-header{
+/* HERO */
+.hero{
   height:100vh;
+  background:url('https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3') center/cover fixed;
   display:flex;
-  flex-direction:column;
-  justify-content:center;
   align-items:center;
+  justify-content:center;
   text-align:center;
-  background:url('https://images.unsplash.com/photo-1446776811953-b23d57bd21aa') center/cover fixed;
 }
-
-header h1{
-  font-size:3.2rem;
+.hero h1{
+  font-size:3.5rem;
   color:var(--blue);
   animation:fadeDown 1.5s ease;
 }
-header p{
-  max-width:600px;
+.hero p{
+  max-width:650px;
+  margin-top:15px;
   opacity:.9;
 }
 
@@ -46,99 +46,107 @@ header p{
   to{opacity:1;transform:translateY(0)}
 }
 
-section{
-  padding:80px 10%;
-}
+/* SECTION */
+section{padding:90px 10%}
+h2{text-align:center;color:var(--blue);margin-bottom:50px}
 
-h2{
-  text-align:center;
-  margin-bottom:40px;
-  color:var(--blue);
-}
-
+/* GRID */
 .grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:30px;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:35px;
 }
 
 .card{
-  background:rgba(255,255,255,.05);
-  border-radius:18px;
-  padding:20px;
+  background:var(--glass);
+  backdrop-filter:blur(8px);
+  border-radius:22px;
+  padding:25px;
   text-align:center;
   cursor:pointer;
   transition:.4s;
 }
 .card:hover{
-  transform:translateY(-12px) scale(1.03);
-  box-shadow:0 0 30px rgba(77,163,255,.3);
+  transform:translateY(-15px) scale(1.05);
+  box-shadow:0 0 35px rgba(93,173,226,.45);
 }
 .card img{
-  width:140px;
-  height:140px;
+  width:150px;
+  height:150px;
   object-fit:cover;
   border-radius:50%;
   margin-bottom:15px;
 }
 
+/* MODAL */
 .modal{
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,.85);
+  background:rgba(0,0,0,.88);
   display:none;
   justify-content:center;
   align-items:center;
-  z-index:10;
+  z-index:100;
 }
-
 .modal-content{
-  background:#0b1d3a;
-  border-radius:20px;
-  max-width:800px;
-  width:90%;
-  padding:30px;
+  background:#081a33;
+  border-radius:22px;
+  max-width:900px;
+  width:92%;
+  padding:35px;
   animation:zoom .4s ease;
 }
 @keyframes zoom{
   from{transform:scale(.6);opacity:0}
   to{transform:scale(1);opacity:1}
 }
-
 .modal img{
   width:100%;
-  border-radius:15px;
-  margin:15px 0;
+  border-radius:16px;
+  margin:18px 0;
 }
-
 .close{
   float:right;
   cursor:pointer;
-  font-size:1.4rem;
+  font-size:1.5rem;
   color:var(--blue);
 }
 
+/* FOOTER */
 footer{
-  padding:30px;
+  background:#020814;
+  padding:35px;
   text-align:center;
-  background:#020712;
   font-size:.9rem;
 }
 footer a{color:var(--blue);text-decoration:none}
+
+/* SCROLL ANIMATION */
+.reveal{
+  opacity:0;
+  transform:translateY(60px);
+  transition:1s;
+}
+.reveal.active{
+  opacity:1;
+  transform:none;
+}
 </style>
 </head>
 
 <body>
 
-<header>
-  <h1>Aitouronct</h1>
-  <p>Explore the wonders of the Milky Way Galaxy — planets, stars, and cosmic facts.</p>
-</header>
+<div class="hero">
+  <div>
+    <h1>Aitouronct</h1>
+    <p>An interactive journey through the Milky Way — planets, stars, and cosmic wonders.</p>
+  </div>
+</div>
 
 <section>
-<h2>☀️ The Sun (Central Star)</h2>
-<div class="grid">
-  <div class="card" onclick="openModal('Sun','The Sun holds 99.8% of the solar system mass and powers life on Earth.','https://images.unsplash.com/photo-1470290378698-263fa7caed6f')">
+<h2>☀️ The Sun — Central Star</h2>
+<div class="grid reveal">
+  <div class="card" onclick="openModal('The Sun','The Sun contains over 99.8% of the solar system’s mass and controls planetary orbits.','https://images.unsplash.com/photo-1470290378698-263fa7caed6f')">
     <img src="https://images.unsplash.com/photo-1470290378698-263fa7caed6f">
     <h3>The Sun</h3>
   </div>
@@ -147,45 +155,37 @@ footer a{color:var(--blue);text-decoration:none}
 
 <section>
 <h2>🪐 Planets of the Milky Way</h2>
-<div class="grid">
+<div class="grid reveal">
 
-<div class="card" onclick="openModal('Mercury','Smallest planet with extreme temperatures.','https://solarsystem.nasa.gov/system/feature_items/images/18_mercury_new.png')">
-<img src="https://solarsystem.nasa.gov/system/feature_items/images/18_mercury_new.png">
-<h3>Mercury</h3></div>
+<div class="card" onclick="openModal('Mercury','The smallest planet with extreme temperature changes.','https://solarsystem.nasa.gov/system/feature_items/images/18_mercury_new.png')">
+<img src="https://solarsystem.nasa.gov/system/feature_items/images/18_mercury_new.png"><h3>Mercury</h3></div>
 
-<div class="card" onclick="openModal('Venus','Hottest planet due to thick atmosphere.','https://solarsystem.nasa.gov/system/feature_items/images/27_venus_jg.png')">
-<img src="https://solarsystem.nasa.gov/system/feature_items/images/27_venus_jg.png">
-<h3>Venus</h3></div>
+<div class="card" onclick="openModal('Venus','The hottest planet due to a runaway greenhouse effect.','https://solarsystem.nasa.gov/system/feature_items/images/27_venus_jg.png')">
+<img src="https://solarsystem.nasa.gov/system/feature_items/images/27_venus_jg.png"><h3>Venus</h3></div>
 
-<div class="card" onclick="openModal('Earth','Only known planet with life.','https://solarsystem.nasa.gov/system/feature_items/images/17_earth.png')">
-<img src="https://solarsystem.nasa.gov/system/feature_items/images/17_earth.png">
-<h3>Earth</h3></div>
+<div class="card" onclick="openModal('Earth','The only known planet that supports life.','https://solarsystem.nasa.gov/system/feature_items/images/17_earth.png')">
+<img src="https://solarsystem.nasa.gov/system/feature_items/images/17_earth.png"><h3>Earth</h3></div>
 
-<div class="card" onclick="openModal('Mars','The red planet may have had water.','https://solarsystem.nasa.gov/system/feature_items/images/19_mars.png')">
-<img src="https://solarsystem.nasa.gov/system/feature_items/images/19_mars.png">
-<h3>Mars</h3></div>
+<div class="card" onclick="openModal('Mars','Known as the Red Planet, once had flowing water.','https://solarsystem.nasa.gov/system/feature_items/images/19_mars.png')">
+<img src="https://solarsystem.nasa.gov/system/feature_items/images/19_mars.png"><h3>Mars</h3></div>
 
-<div class="card" onclick="openModal('Jupiter','Largest planet with massive storms.','https://solarsystem.nasa.gov/system/feature_items/images/16_jupiter_new.png')">
-<img src="https://solarsystem.nasa.gov/system/feature_items/images/16_jupiter_new.png">
-<h3>Jupiter</h3></div>
+<div class="card" onclick="openModal('Jupiter','The largest planet with massive storms.','https://solarsystem.nasa.gov/system/feature_items/images/16_jupiter_new.png')">
+<img src="https://solarsystem.nasa.gov/system/feature_items/images/16_jupiter_new.png"><h3>Jupiter</h3></div>
 
-<div class="card" onclick="openModal('Saturn','Famous for its rings.','https://solarsystem.nasa.gov/system/feature_items/images/28_saturn.png')">
-<img src="https://solarsystem.nasa.gov/system/feature_items/images/28_saturn.png">
-<h3>Saturn</h3></div>
+<div class="card" onclick="openModal('Saturn','Famous for its beautiful ring system.','https://solarsystem.nasa.gov/system/feature_items/images/28_saturn.png')">
+<img src="https://solarsystem.nasa.gov/system/feature_items/images/28_saturn.png"><h3>Saturn</h3></div>
 
-<div class="card" onclick="openModal('Uranus','Rotates on its side.','https://solarsystem.nasa.gov/system/feature_items/images/29_uranus.png')">
-<img src="https://solarsystem.nasa.gov/system/feature_items/images/29_uranus.png">
-<h3>Uranus</h3></div>
+<div class="card" onclick="openModal('Uranus','Rotates on its side with extreme seasons.','https://solarsystem.nasa.gov/system/feature_items/images/29_uranus.png')">
+<img src="https://solarsystem.nasa.gov/system/feature_items/images/29_uranus.png"><h3>Uranus</h3></div>
 
-<div class="card" onclick="openModal('Neptune','Fastest winds in the solar system.','https://solarsystem.nasa.gov/system/feature_items/images/30_neptune.png')">
-<img src="https://solarsystem.nasa.gov/system/feature_items/images/30_neptune.png">
-<h3>Neptune</h3></div>
+<div class="card" onclick="openModal('Neptune','The windiest planet in the solar system.','https://solarsystem.nasa.gov/system/feature_items/images/30_neptune.png')">
+<img src="https://solarsystem.nasa.gov/system/feature_items/images/30_neptune.png"><h3>Neptune</h3></div>
 
 </div>
 </section>
 
 <footer>
-Contact: <a href="https://instagram.com/eirthuoo">@eirthuoo</a><br>
+Instagram: <a href="https://instagram.com/eirthuoo">@eirthuoo</a><br>
 © 2026 Aitouronct Galaxy Project
 </footer>
 
@@ -200,14 +200,22 @@ Contact: <a href="https://instagram.com/eirthuoo">@eirthuoo</a><br>
 
 <script>
 function openModal(title,text,img){
-  document.getElementById('modal').style.display='flex';
+  modal.style.display='flex';
   mTitle.innerText=title;
   mText.innerText=text;
   mImg.src=img;
 }
 function closeModal(){
-  document.getElementById('modal').style.display='none';
+  modal.style.display='none';
 }
+
+window.addEventListener('scroll',()=>{
+  document.querySelectorAll('.reveal').forEach(el=>{
+    if(el.getBoundingClientRect().top < window.innerHeight - 100){
+      el.classList.add('active');
+    }
+  });
+});
 </script>
 
 </body>
