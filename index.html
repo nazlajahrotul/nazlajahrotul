@@ -3,20 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Aitouronct — Space & Cosmic Facts</title>
+  <title>aitorunoct | Cosmic Gallery</title>
 
-  <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
   <style>
-    :root {
-      --blue-main: #0a1a3f;
-      --blue-soft: #132b6b;
-      --galaxy: radial-gradient(circle at top, #1b3b8f, #020617);
-      --text-main: #e6ecff;
-      --accent: #4da3ff;
-    }
-
     * {
       margin: 0;
       padding: 0;
@@ -25,87 +16,74 @@
     }
 
     body {
-      background: var(--galaxy);
-      color: var(--text-main);
-      line-height: 1.6;
+      background: radial-gradient(circle at top, #0b1d3a, #020111);
+      color: #e6ecff;
+      overflow-x: hidden;
     }
 
     header {
       min-height: 100vh;
       display: flex;
-      align-items: center;
+      flex-direction: column;
       justify-content: center;
+      align-items: center;
       text-align: center;
-      padding: 2rem;
-      background: linear-gradient(to bottom, rgba(2,6,23,0.3), rgba(2,6,23,1));
+      padding: 20px;
+      animation: fadeIn 2s ease;
     }
 
     header h1 {
-      font-size: 3rem;
-      font-weight: 600;
+      font-size: 3.2rem;
+      color: #9db9ff;
       letter-spacing: 2px;
     }
 
     header p {
-      margin-top: 1rem;
-      font-size: 1.1rem;
-      color: #c7d2fe;
       max-width: 600px;
+      margin: 20px 0;
+      opacity: 0.9;
     }
 
-    .scroll-btn {
-      margin-top: 2rem;
-      padding: 0.8rem 2rem;
+    .btn {
+      padding: 12px 28px;
       border-radius: 30px;
-      background: transparent;
-      border: 1px solid var(--accent);
-      color: var(--accent);
+      border: none;
+      background: linear-gradient(135deg, #3f6cff, #6a8dff);
+      color: white;
       cursor: pointer;
-      transition: 0.3s;
+      font-size: 0.9rem;
+      transition: transform 0.3s ease;
     }
 
-    .scroll-btn:hover {
-      background: var(--accent);
-      color: #020617;
+    .btn:hover {
+      transform: scale(1.08);
     }
 
     section {
-      padding: 4rem 2rem;
+      padding: 80px 20px;
       max-width: 1200px;
       margin: auto;
-    }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 3rem;
-    }
-
-    .section-title h2 {
-      font-size: 2rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .section-title p {
-      color: #b6c2ff;
-      font-size: 0.95rem;
     }
 
     .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 2rem;
+      gap: 30px;
     }
 
     .card {
-      background: rgba(255,255,255,0.04);
+      background: rgba(255,255,255,0.06);
       border-radius: 18px;
       overflow: hidden;
-      backdrop-filter: blur(6px);
-      transition: transform 0.3s ease;
+      backdrop-filter: blur(10px);
+      transform: translateY(40px);
+      opacity: 0;
+      transition: all 0.8s ease;
     }
 
-    .card:hover {
-      transform: translateY(-8px);
+    .card.show {
+      transform: translateY(0);
+      opacity: 1;
     }
 
     .card img {
@@ -115,123 +93,100 @@
     }
 
     .card-content {
-      padding: 1.2rem;
+      padding: 20px;
     }
 
     .card-content h3 {
-      margin-bottom: 0.5rem;
-      color: #dbeafe;
-    }
-
-    .card-content p {
-      font-size: 0.9rem;
-      color: #c7d2fe;
+      color: #a8c0ff;
+      margin-bottom: 10px;
     }
 
     footer {
       text-align: center;
-      padding: 3rem 1rem;
-      background: #020617;
-      margin-top: 4rem;
-    }
-
-    footer p {
+      padding: 40px 20px;
+      border-top: 1px solid rgba(255,255,255,0.1);
       font-size: 0.9rem;
-      color: #9aa5ff;
     }
 
     footer a {
-      color: var(--accent);
+      color: #8fb1ff;
       text-decoration: none;
     }
 
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 2.2rem;
-      }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 
 <body>
 
-  <!-- HERO -->
-  <header>
-    <div>
-      <h1>AITOURONCT</h1>
-      <p>
-        A quiet space where galaxies, planets, and cosmic mysteries
-        drift together — science, beauty, and silence.
-      </p>
-      <button class="scroll-btn" onclick="document.getElementById('space').scrollIntoView({behavior:'smooth'})">
-        Explore the Universe
-      </button>
+<header>
+  <h1>aitorunoct</h1>
+  <p>
+    A cosmic art project exploring planets, galaxies, and mysteries of the universe.
+  </p>
+  <button class="btn" onclick="scrollToGallery()">Explore the Cosmos</button>
+</header>
+
+<section id="gallery">
+  <div class="gallery">
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa">
+      <div class="card-content">
+        <h3>Earth</h3>
+        <p>The only known planet that supports life with a protective atmosphere.</p>
+        <button class="btn" onclick="showFact('Earth has a powerful magnetic field!')">Fun Fact</button>
+      </div>
     </div>
-  </header>
 
-  <!-- GALLERY -->
-  <section id="space">
-    <div class="section-title">
-      <h2>Cosmic Gallery</h2>
-      <p>Celestial objects and fascinating facts from the universe</p>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1580428180138-64b7b02b4c7e">
+      <div class="card-content">
+        <h3>Mars</h3>
+        <p>Mars appears red due to iron oxide covering its surface.</p>
+        <button class="btn" onclick="showFact('Mars has the largest volcano in the solar system!')">Fun Fact</button>
+      </div>
     </div>
 
-    <div class="gallery">
-
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa" alt="Earth">
-        <div class="card-content">
-          <h3>Earth</h3>
-          <p>
-            Earth appears blue from space not only because of water,
-            but also because its atmosphere scatters blue light efficiently.
-          </p>
-        </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1473923377535-0002805f57c8">
+      <div class="card-content">
+        <h3>Nebula</h3>
+        <p>Stellar nurseries where stars are born.</p>
+        <button class="btn" onclick="showFact('Nebulae can span hundreds of light-years!')">Fun Fact</button>
       </div>
-
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564" alt="Mars">
-        <div class="card-content">
-          <h3>Mars</h3>
-          <p>
-            Mars is known as the Red Planet due to iron oxide on its surface,
-            hinting at a past that may have once supported water.
-          </p>
-        </div>
-      </div>
-
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1476611338391-6f395a0ebc6c" alt="Jupiter">
-        <div class="card-content">
-          <h3>Jupiter</h3>
-          <p>
-            Jupiter is so massive that it protects inner planets by
-            pulling asteroids away with its strong gravity.
-          </p>
-        </div>
-      </div>
-
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1450849608880-6f787542c88a" alt="Nebula">
-        <div class="card-content">
-          <h3>Nebula</h3>
-          <p>
-            Nebulae are stellar nurseries where new stars are born
-            from clouds of gas and cosmic dust.
-          </p>
-        </div>
-      </div>
-
     </div>
-  </section>
 
-  <!-- FOOTER -->
-  <footer>
-    <p>
-      © 2026 Aitouronct — drifting through blue silence<br>
-      Instagram: <a href="https://instagram.com/eirthuoo" target="_blank">@eirthuoo</a>
-    </p>
-  </footer>
+  </div>
+</section>
+
+<footer>
+  © 2026 aitorunoct · Instagram:
+  <a href="https://instagram.com/eirthuoo" target="_blank">@eirthuoo</a>
+</footer>
+
+<script>
+  function scrollToGallery() {
+    document.getElementById('gallery').scrollIntoView({ behavior: 'smooth' });
+  }
+
+  function showFact(text) {
+    alert(text);
+  }
+
+  const cards = document.querySelectorAll('.card');
+  window.addEventListener('scroll', () => {
+    cards.forEach(card => {
+      const rect = card.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 100) {
+        card.classList.add('show');
+      }
+    });
+  });
+</script>
 
 </body>
 </html>
