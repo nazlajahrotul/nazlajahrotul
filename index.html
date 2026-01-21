@@ -3,167 +3,234 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>aitorunoct — cosmic art project</title>
+  <title>Aitouronct — Space & Cosmic Facts</title>
 
-  <!-- Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600&display=swap" rel="stylesheet">
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
   <style>
+    :root {
+      --blue-main: #0a1a3f;
+      --blue-soft: #132b6b;
+      --galaxy: radial-gradient(circle at top, #1b3b8f, #020617);
+      --text-main: #e6ecff;
+      --accent: #4da3ff;
+    }
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Space Grotesk', sans-serif;
+      font-family: 'Poppins', sans-serif;
     }
 
     body {
-      min-height: 100vh;
-      background:
-        radial-gradient(circle at top, #0b1d3a 0%, #050b1e 40%, #020617 100%);
-      color: #e0f2fe;
-      overflow-x: hidden;
-    }
-
-    /* stars */
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background-image:
-        radial-gradient(1px 1px at 15% 20%, #93c5fd, transparent),
-        radial-gradient(1px 1px at 70% 30%, #bfdbfe, transparent),
-        radial-gradient(1px 1px at 40% 80%, #60a5fa, transparent),
-        radial-gradient(1px 1px at 85% 75%, #93c5fd, transparent);
-      opacity: 0.7;
-      pointer-events: none;
+      background: var(--galaxy);
+      color: var(--text-main);
+      line-height: 1.6;
     }
 
     header {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       text-align: center;
-      padding: 5rem 2rem 4rem;
+      padding: 2rem;
+      background: linear-gradient(to bottom, rgba(2,6,23,0.3), rgba(2,6,23,1));
     }
 
     header h1 {
-      font-size: clamp(2.5rem, 6vw, 4rem);
-      letter-spacing: 0.25em;
-      color: #bfdbfe;
+      font-size: 3rem;
+      font-weight: 600;
+      letter-spacing: 2px;
     }
 
     header p {
       margin-top: 1rem;
-      font-size: 1rem;
-      opacity: 0.8;
-      letter-spacing: 0.15em;
+      font-size: 1.1rem;
+      color: #c7d2fe;
+      max-width: 600px;
+    }
+
+    .scroll-btn {
+      margin-top: 2rem;
+      padding: 0.8rem 2rem;
+      border-radius: 30px;
+      background: transparent;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .scroll-btn:hover {
+      background: var(--accent);
+      color: #020617;
     }
 
     section {
-      max-width: 950px;
-      margin: 0 auto;
-      padding: 2rem;
+      padding: 4rem 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .section-title h2 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-title p {
+      color: #b6c2ff;
+      font-size: 0.95rem;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
     }
 
     .card {
-      background: linear-gradient(
-        160deg,
-        rgba(30, 64, 175, 0.35),
-        rgba(2, 6, 23, 0.75)
-      );
-      border: 1px solid rgba(147, 197, 253, 0.15);
-      border-radius: 22px;
-      padding: 2.5rem;
-      margin-bottom: 2.5rem;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 0 50px rgba(59, 130, 246, 0.18);
+      background: rgba(255,255,255,0.04);
+      border-radius: 18px;
+      overflow: hidden;
+      backdrop-filter: blur(6px);
+      transition: transform 0.3s ease;
     }
 
-    .card h2 {
-      font-weight: 400;
-      margin-bottom: 1rem;
-      color: #93c5fd;
-      letter-spacing: 0.2em;
+    .card:hover {
+      transform: translateY(-8px);
     }
 
-    .card p {
-      line-height: 1.9;
-      font-weight: 300;
-      opacity: 0.95;
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 1.2rem;
+    }
+
+    .card-content h3 {
+      margin-bottom: 0.5rem;
+      color: #dbeafe;
+    }
+
+    .card-content p {
+      font-size: 0.9rem;
+      color: #c7d2fe;
     }
 
     footer {
       text-align: center;
-      padding: 3rem 1rem 4rem;
-      font-size: 0.8rem;
-      opacity: 0.6;
-      letter-spacing: 0.2em;
+      padding: 3rem 1rem;
+      background: #020617;
+      margin-top: 4rem;
+    }
+
+    footer p {
+      font-size: 0.9rem;
+      color: #9aa5ff;
+    }
+
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2.2rem;
+      }
     }
   </style>
 </head>
 
 <body>
 
+  <!-- HERO -->
   <header>
-    <h1>AITORUNOCT</h1>
-    <p>a quiet archive of galaxies and thoughts</p>
+    <div>
+      <h1>AITOURONCT</h1>
+      <p>
+        A quiet space where galaxies, planets, and cosmic mysteries
+        drift together — science, beauty, and silence.
+      </p>
+      <button class="scroll-btn" onclick="document.getElementById('space').scrollIntoView({behavior:'smooth'})">
+        Explore the Universe
+      </button>
+    </div>
   </header>
 
-  <section>
-    <div class="card">
-      <h2>ABOUT THIS SPACE</h2>
-      <p>
-        Aitorunoct is a personal cosmic art project.
-        It is not meant to explain the universe,
-        but to feel it — slowly, quietly,
-        in shades of deep blue and distant light.
-      </p>
+  <!-- GALLERY -->
+  <section id="space">
+    <div class="section-title">
+      <h2>Cosmic Gallery</h2>
+      <p>Celestial objects and fascinating facts from the universe</p>
     </div>
 
-    <div class="card">
-      <h2>FACT I — WE ARE STARDUST</h2>
-      <p>
-        Almost every element in the human body
-        was forged inside stars billions of years ago.
-        When massive stars died,
-        they scattered the building blocks of life
-        across the universe.
-      </p>
-    </div>
+    <div class="gallery">
 
-    <div class="card">
-      <h2>FACT II — THE SOUND OF SPACE</h2>
-      <p>
-        Space itself is silent,
-        but galaxies and black holes
-        emit vibrations that can be translated into sound.
-        The universe has a rhythm —
-        we just need the right instruments to hear it.
-      </p>
-    </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa" alt="Earth">
+        <div class="card-content">
+          <h3>Earth</h3>
+          <p>
+            Earth appears blue from space not only because of water,
+            but also because its atmosphere scatters blue light efficiently.
+          </p>
+        </div>
+      </div>
 
-    <div class="card">
-      <h2>FACT III — LOOKING BACK IN TIME</h2>
-      <p>
-        When we observe distant galaxies,
-        we are seeing them as they were millions
-        or even billions of years ago.
-        Every telescope is a time machine,
-        pointing into the past.
-      </p>
-    </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564" alt="Mars">
+        <div class="card-content">
+          <h3>Mars</h3>
+          <p>
+            Mars is known as the Red Planet due to iron oxide on its surface,
+            hinting at a past that may have once supported water.
+          </p>
+        </div>
+      </div>
 
-    <div class="card">
-      <h2>FACT IV — THE BLUE PLANET</h2>
-      <p>
-        Earth appears blue from space
-        not only because of water,
-        but because our atmosphere
-        scatters blue light more efficiently.
-        A fragile color, protecting life.
-      </p>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1476611338391-6f395a0ebc6c" alt="Jupiter">
+        <div class="card-content">
+          <h3>Jupiter</h3>
+          <p>
+            Jupiter is so massive that it protects inner planets by
+            pulling asteroids away with its strong gravity.
+          </p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1450849608880-6f787542c88a" alt="Nebula">
+        <div class="card-content">
+          <h3>Nebula</h3>
+          <p>
+            Nebulae are stellar nurseries where new stars are born
+            from clouds of gas and cosmic dust.
+          </p>
+        </div>
+      </div>
+
     </div>
   </section>
 
+  <!-- FOOTER -->
   <footer>
-    © 2026 aitorunoct — drifting through blue silence
+    <p>
+      © 2026 Aitouronct — drifting through blue silence<br>
+      Instagram: <a href="https://instagram.com/eirthuoo" target="_blank">@eirthuoo</a>
+    </p>
   </footer>
 
 </body>
