@@ -1,325 +1,230 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aitouronct — Milky Way Galaxy Explorer</title>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="Travel agency terpercaya untuk liburan domestik dan internasional." />
+        <meta name="author" content="ExploreNusa Travel" />
+        <title>ExploreNusa Travel | Liburan Nyaman & Terpercaya</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
 
-<style>
-:root{
-  --blue:#6bb6ff;
-  --glass:rgba(255,255,255,.08);
-}
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" />
 
-*{margin:0;padding:0;box-sizing:border-box}
-body{
-  font-family:'Poppins',sans-serif;
-  background:radial-gradient(circle at top,#0b2c52,#020714);
-  color:white;
-  overflow-x:hidden;
-}
+        <link href="css/styles.css" rel="stylesheet" />
+    </head>
 
-/* HERO */
-.hero{
-  height:100vh;
-  background:url('https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3') center/cover fixed;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-}
-.hero h1{
-  font-size:3.8rem;
-  color:var(--blue);
-  animation:fadeDown 1.5s ease;
-}
-.hero p{
-  max-width:700px;
-  margin-top:20px;
-  opacity:.9;
-}
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand" href="#page-top">ExploreNusa</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive">
+                    Menu <i class="fas fa-bars ms-1"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="#services">Layanan</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#portfolio">Paket Wisata</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#about">Tentang Kami</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#team">Tim</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contact">Kontak</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
 
-@keyframes fadeDown{
-  from{opacity:0;transform:translateY(-50px)}
-  to{opacity:1;transform:translateY(0)}
-}
+        <!-- Masthead-->
+        <header class="masthead">
+            <div class="container">
+                <div class="masthead-subheading">Wujudkan Liburan Impianmu</div>
+                <div class="masthead-heading text-uppercase">Travel Nyaman & Terpercaya</div>
+                <a class="btn btn-primary btn-xl text-uppercase" href="#services">Lihat Layanan</a>
+            </div>
+        </header>
 
-/* SECTION */
-section{padding:90px 10%}
-h2{text-align:center;color:var(--blue);margin-bottom:50px}
+        <!-- Services-->
+        <section class="page-section" id="services">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Layanan Kami</h2>
+                    <h3 class="section-subheading text-muted">Solusi lengkap untuk perjalanan liburan Anda</h3>
+                </div>
 
-/* GRID */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  gap:40px;
-}
+                <div class="row text-center">
+                    <div class="col-md-4">
+                        <span class="fa-stack fa-4x">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fas fa-plane fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h4 class="my-3">Paket Wisata</h4>
+                        <p class="text-muted">Paket liburan domestik dan internasional dengan itinerary terencana dan harga transparan.</p>
+                    </div>
 
-.card{
-  background:var(--glass);
-  backdrop-filter:blur(10px);
-  border-radius:24px;
-  padding:25px;
-  text-align:center;
-  cursor:pointer;
-  transition:.4s;
-}
-.card:hover{
-  transform:translateY(-18px) scale(1.05);
-  box-shadow:0 0 40px rgba(107,182,255,.45);
-}
-.card img{
-  width:160px;
-  height:160px;
-  object-fit:cover;
-  border-radius:50%;
-  margin-bottom:18px;
-}
-.card h3{margin-bottom:8px}
+                    <div class="col-md-4">
+                        <span class="fa-stack fa-4x">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fas fa-users fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h4 class="my-3">Open & Private Trip</h4>
+                        <p class="text-muted">Pilihan perjalanan bersama atau privat sesuai kebutuhan keluarga, komunitas, maupun kantor.</p>
+                    </div>
 
-/* MODAL */
-.modal{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.9);
-  display:none;
-  justify-content:center;
-  align-items:center;
-  z-index:999;
-}
-.modal-content{
-  background:#071a33;
-  border-radius:26px;
-  max-width:1000px;
-  width:94%;
-  padding:35px;
-  max-height:90vh;
-  overflow-y:auto;
-  animation:zoom .4s ease;
-}
-@keyframes zoom{
-  from{transform:scale(.6);opacity:0}
-  to{transform:scale(1);opacity:1}
-}
-.modal h2{margin-bottom:15px}
-.modal p{line-height:1.8;opacity:.95}
-.gallery{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-  gap:15px;
-  margin:20px 0;
-}
-.gallery img{
-  width:100%;
-  border-radius:16px;
-}
-.close{
-  float:right;
-  cursor:pointer;
-  font-size:1.6rem;
-  color:var(--blue);
-}
+                    <div class="col-md-4">
+                        <span class="fa-stack fa-4x">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fas fa-hotel fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h4 class="my-3">Akomodasi & Transport</h4>
+                        <p class="text-muted">Hotel, transportasi, dan kebutuhan perjalanan dipilih secara profesional dan aman.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-/* SCROLL */
-.reveal{
-  opacity:0;
-  transform:translateY(70px);
-  transition:1s;
-}
-.reveal.active{
-  opacity:1;
-  transform:none;
-}
+        <!-- Portfolio-->
+        <section class="page-section bg-light" id="portfolio">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Paket Wisata Favorit</h2>
+                    <h3 class="section-subheading text-muted">Destinasi pilihan terbaik untuk liburan Anda</h3>
+                </div>
 
-/* FOOTER */
-footer{
-  background:#020814;
-  padding:35px;
-  text-align:center;
-  font-size:.9rem;
-}
-footer a{color:var(--blue);text-decoration:none}
-</style>
-</head>
+                <div class="row">
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <div class="portfolio-item">
+                            <img class="img-fluid" src="assets/img/portfolio/1.jpg" alt="Bali Tour" />
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading">Bali Tour</div>
+                                <div class="portfolio-caption-subheading text-muted">Pantai & Budaya</div>
+                            </div>
+                        </div>
+                    </div>
 
-<body>
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <div class="portfolio-item">
+                            <img class="img-fluid" src="assets/img/portfolio/2.jpg" alt="Yogyakarta Trip" />
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading">Yogyakarta</div>
+                                <div class="portfolio-caption-subheading text-muted">Sejarah & Kuliner</div>
+                            </div>
+                        </div>
+                    </div>
 
-<div class="hero">
-  <div>
-    <h1>Aitouronct</h1>
-    <p>An immersive exploration of the Milky Way Galaxy — planets, stars, orbits, and deep-space facts.</p>
-  </div>
-</div>
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <div class="portfolio-item">
+                            <img class="img-fluid" src="assets/img/portfolio/3.jpg" alt="Lombok Trip" />
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading">Lombok</div>
+                                <div class="portfolio-caption-subheading text-muted">Alam & Petualangan</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-<section>
-<h2>🪐 Planets of the Solar System</h2>
-<div class="grid reveal">
+        <!-- About-->
+        <section class="page-section" id="about">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Tentang Kami</h2>
+                    <h3 class="section-subheading text-muted">Perjalanan kami melayani wisatawan</h3>
+                </div>
 
-<div class="card" onclick="openPlanet(planetData.mercury)">
-<img src="https://solarsystem.nasa.gov/system/feature_items/images/18_mercury_new.png">
-<h3>Mercury</h3><p>Closest to the Sun</p>
-</div>
+                <ul class="timeline">
+                    <li>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4>2018</h4>
+                                <h4 class="subheading">ExploreNusa Berdiri</h4>
+                            </div>
+                            <div class="timeline-body">
+                                <p class="text-muted">Didirikan dengan visi menghadirkan perjalanan yang aman, nyaman, dan berkesan.</p>
+                            </div>
+                        </div>
+                    </li>
 
-<div class="card" onclick="openPlanet(planetData.venus)">
-<img src="https://solarsystem.nasa.gov/system/feature_items/images/27_venus_jg.png">
-<h3>Venus</h3><p>The hottest planet</p>
-</div>
+                    <li class="timeline-inverted">
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4>2020</h4>
+                                <h4 class="subheading">Pengembangan Layanan</h4>
+                            </div>
+                            <div class="timeline-body">
+                                <p class="text-muted">Menjangkau lebih banyak destinasi dan memperluas pilihan paket wisata.</p>
+                            </div>
+                        </div>
+                    </li>
 
-<div class="card" onclick="openPlanet(planetData.earth)">
-<img src="https://solarsystem.nasa.gov/system/feature_items/images/17_earth.png">
-<h3>Earth</h3><p>Our home planet</p>
-</div>
+                    <li>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4>Sekarang</h4>
+                                <h4 class="subheading">Partner Liburan Anda</h4>
+                            </div>
+                            <div class="timeline-body">
+                                <p class="text-muted">Dipercaya oleh ratusan pelanggan untuk perjalanan domestik dan internasional.</p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
 
-<div class="card" onclick="openPlanet(planetData.mars)">
-<img src="https://solarsystem.nasa.gov/system/feature_items/images/19_mars.png">
-<h3>Mars</h3><p>The Red Planet</p>
-</div>
+        <!-- Team-->
+        <section class="page-section bg-light" id="team">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Tim Kami</h2>
+                    <h3 class="section-subheading text-muted">Profesional & berpengalaman di bidang travel</h3>
+                </div>
 
-<div class="card" onclick="openPlanet(planetData.jupiter)">
-<img src="https://solarsystem.nasa.gov/system/feature_items/images/16_jupiter_new.png">
-<h3>Jupiter</h3><p>Gas giant king</p>
-</div>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="team-member">
+                            <h4>Travel Consultant</h4>
+                            <p class="text-muted">Perencanaan Perjalanan</p>
+                        </div>
+                    </div>
 
-<div class="card" onclick="openPlanet(planetData.saturn)">
-<img src="https://solarsystem.nasa.gov/system/feature_items/images/28_saturn.png">
-<h3>Saturn</h3><p>Iconic rings</p>
-</div>
+                    <div class="col-lg-4">
+                        <div class="team-member">
+                            <h4>Tour Leader</h4>
+                            <p class="text-muted">Pendamping Wisata</p>
+                        </div>
+                    </div>
 
-<div class="card" onclick="openPlanet(planetData.uranus)">
-<img src="https://solarsystem.nasa.gov/system/feature_items/images/29_uranus.png">
-<h3>Uranus</h3><p>Sideways rotation</p>
-</div>
+                    <div class="col-lg-4">
+                        <div class="team-member">
+                            <h4>Customer Support</h4>
+                            <p class="text-muted">Layanan Pelanggan</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-<div class="card" onclick="openPlanet(planetData.neptune)">
-<img src="https://solarsystem.nasa.gov/system/feature_items/images/30_neptune.png">
-<h3>Neptune</h3><p>Extreme winds</p>
-</div>
+        <!-- Contact-->
+        <section class="page-section" id="contact">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Hubungi Kami</h2>
+                    <h3 class="section-subheading text-muted">Siap membantu rencana liburan Anda</h3>
+                </div>
+            </div>
+        </section>
 
-</div>
-</section>
+        <!-- Footer-->
+        <footer class="footer py-4">
+            <div class="container text-center">
+                <div>© 2026 ExploreNusa Travel. All Rights Reserved.</div>
+            </div>
+        </footer>
 
-<footer>
-Instagram: <a href="https://instagram.com/eirthuoo">@eirthuoo</a><br>
-© 2026 Aitouronct Galaxy Project
-</footer>
-
-<!-- MODAL -->
-<div class="modal" id="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal()">✕</span>
-    <h2 id="mTitle"></h2>
-    <p id="mText"></p>
-    <div class="gallery" id="mGallery"></div>
-  </div>
-</div>
-
-<script>
-const planetData = {
-mercury:{
-title:"Mercury",
-text:`Mercury is the smallest and innermost planet in the Solar System. 
-It experiences extreme temperature variations, ranging from -180°C at night 
-to over 430°C during the day. Mercury has no atmosphere to retain heat and 
-orbits the Sun faster than any other planet, completing one orbit in just 88 Earth days.`,
-images:[
-"https://solarsystem.nasa.gov/system/feature_items/images/18_mercury_new.png",
-"https://images.unsplash.com/photo-1580428180131-70f3c61c52e6"
-]
-},
-venus:{
-title:"Venus",
-text:`Venus is similar in size to Earth but has a thick atmosphere dominated by carbon dioxide.
-This creates an intense greenhouse effect, making Venus the hottest planet in the Solar System.
-Surface temperatures can melt lead, and its clouds contain sulfuric acid.`,
-images:[
-"https://solarsystem.nasa.gov/system/feature_items/images/27_venus_jg.png",
-"https://images.unsplash.com/photo-1580428180781-b4c3e2c5d5e5"
-]
-},
-earth:{
-title:"Earth",
-text:`Earth is the only known planet that supports life.
-It has liquid water, a protective magnetic field, and an atmosphere rich in oxygen.
-About 71% of Earth's surface is covered by oceans, and it orbits the Sun every 365 days.`,
-images:[
-"https://solarsystem.nasa.gov/system/feature_items/images/17_earth.png",
-"https://images.unsplash.com/photo-1446776811953-b23d57bd21aa"
-]
-},
-mars:{
-title:"Mars",
-text:`Mars is known as the Red Planet due to iron oxide on its surface.
-Scientists believe Mars once had rivers and lakes.
-Today, it is a cold desert world but remains one of the top targets for future human exploration.`,
-images:[
-"https://solarsystem.nasa.gov/system/feature_items/images/19_mars.png",
-"https://images.unsplash.com/photo-1580428180218-0e2dfc86a2b6"
-]
-},
-jupiter:{
-title:"Jupiter",
-text:`Jupiter is the largest planet in the Solar System.
-It has a powerful magnetic field and dozens of moons.
-The Great Red Spot is a massive storm that has raged for over 300 years.`,
-images:[
-"https://solarsystem.nasa.gov/system/feature_items/images/16_jupiter_new.png",
-"https://images.unsplash.com/photo-1614642264762-d0a3b8bf3700"
-]
-},
-saturn:{
-title:"Saturn",
-text:`Saturn is famous for its spectacular ring system made of ice and rock.
-It is a gas giant with very low density—so low that it could float in water if a bathtub were big enough.`,
-images:[
-"https://solarsystem.nasa.gov/system/feature_items/images/28_saturn.png",
-"https://images.unsplash.com/photo-1614728894747-3f9c62e5f6c4"
-]
-},
-uranus:{
-title:"Uranus",
-text:`Uranus rotates on its side, making its seasons extreme.
-It has a pale blue color due to methane in its atmosphere.
-Each pole experiences 42 years of continuous sunlight or darkness.`,
-images:[
-"https://solarsystem.nasa.gov/system/feature_items/images/29_uranus.png",
-"https://images.unsplash.com/photo-1614728894966-0c3dbfc0d7f4"
-]
-},
-neptune:{
-title:"Neptune",
-text:`Neptune is the farthest planet from the Sun.
-It has the strongest winds in the Solar System, reaching speeds of over 2,000 km/h.
-Neptune appears deep blue due to atmospheric methane.`,
-images:[
-"https://solarsystem.nasa.gov/system/feature_items/images/30_neptune.png",
-"https://images.unsplash.com/photo-1614728894582-1f6fa5f1cfa4"
-]
-}
-};
-
-function openPlanet(p){
-  modal.style.display="flex";
-  mTitle.innerText=p.title;
-  mText.innerText=p.text;
-  mGallery.innerHTML="";
-  p.images.forEach(img=>{
-    const i=document.createElement("img");
-    i.src=img;
-    mGallery.appendChild(i);
-  });
-}
-function closeModal(){modal.style.display="none"}
-
-window.addEventListener("scroll",()=>{
-  document.querySelectorAll(".reveal").forEach(el=>{
-    if(el.getBoundingClientRect().top < window.innerHeight-100){
-      el.classList.add("active");
-    }
-  });
-});
-</script>
-
-</body>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="js/scripts.js"></script>
+    </body>
 </html>
